@@ -6,7 +6,7 @@
 #    By: mkazuhik <mkazuhik@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/09 17:09:39 by mkazuhik          #+#    #+#              #
-#    Updated: 2025/09/22 07:10:17 by mkazuhik         ###   ########.fr        #
+#    Updated: 2025/09/23 06:29:38 by mkazuhik         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,19 +40,14 @@ INCLUDE = -I$(INC_DIR) -I$(MLX_DIR) -Ilibft
 
 # Source files
 SRCS = main.c \
-	   game_init.c \
-	   map_parser.c \
-	   map_validation.c \
-	   map_checks.c \
-	   map_path.c \
-	   map_utils.c \
-	   map_copy.c \
-	   flood_fill.c \
-	   player_finder.c \
-	   player.c \
-	   render.c \
-	   events.c \
-	   utils.c \
+	   ft_check_map.c \
+	   ft_close_game.c \
+	   ft_free_memory.c \
+	   ft_handle_input.c \
+	   ft_init_game.c \
+	   ft_init_map.c \
+	   ft_render_map.c \
+	   ft_utils.c \
 	   get_next_line.c
 
 # Object files

@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   events.c                                           :+:      :+:    :+:   */
+/*   ft_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkazuhik <mkazuhik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/22 05:33:53 by mkazuhik          #+#    #+#             */
-/*   Updated: 2025/09/22 05:33:55 by mkazuhik         ###   ########.fr       */
+/*   Created: 2025/09/23 06:50:58 by mkazuhik          #+#    #+#             */
+/*   Updated: 2025/09/23 06:50:59 by mkazuhik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	handle_close(t_game *game)
-{
-	ft_cleanup(game);
-	exit(0);
-}
+char	*ft_strappend(char **s1, const char *s2);
 
-int	game_loop(t_game *game)
+char	*ft_strappend(char **s1, const char *s2)
 {
-	render_game(game);
-	if (game->win_condition && game->game_over)
-		handle_close(game);
-	return (0);
+	char	*str;
+
+	if (!*s1 || !s2)
+		return (NULL);
+	str = (char *)ft_calloc((ft_strlen(*s1) + ft_strlen(s2)) + 1, sizeof(char));
+	if (!str)
+		return (NULL);
+	ft_strlcpy(str, *s1, ft_strlen(*s1) + 1);
+	ft_strlcat(str, s2, ft_strlen(*s1) + ft_strlen(s2) + 1);
+	free(*s1);
+	return (str);
 }
