@@ -15,7 +15,7 @@
 int		ft_render_map(t_game *game);
 void	ft_identify_sprite(t_game *game, int x, int y);
 void	ft_render_player(t_game *game, int x, int y);
-void	ft_render_sprite(t_game *game, t_image sprite, int column, int line);
+void	ft_render_sprite(t_game *game, t_image sprite, int line, int column);
 void	ft_print_movements(t_game *game);
 
 int	ft_render_map(t_game *game)
@@ -73,6 +73,10 @@ void	ft_render_player(t_game *game, int y, int x)
 
 void	ft_render_sprite(t_game *game, t_image sprite, int line, int column)
 {
-	mlx_put_image_to_window (game->mlx_ptr, game->win_ptr, \
-	sprite.xpm_ptr, column * sprite.x, line * sprite.y);
+    /* Draw base floor first so transparent (None) areas show it */
+    mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, \
+    game->floor.xpm_ptr, column * IMG_WIDTH, line * IMG_HEIGHT);
+    /* Overlay the requested sprite */
+    mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, \
+    sprite.xpm_ptr, column * sprite.x, line * sprite.y);
 }
