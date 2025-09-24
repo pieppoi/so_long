@@ -6,15 +6,11 @@
 /*   By: mkazuhik <mkazuhik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 06:50:33 by mkazuhik          #+#    #+#             */
-/*   Updated: 2025/09/23 06:56:12 by mkazuhik         ###   ########.fr       */
+/*   Updated: 2025/09/24 18:08:32 by mkazuhik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void	ft_check_command_line_arguments(int argc, char **argv, t_game *game);
-void	ft_init_map(t_game *game, char *argv);
-void	ft_check_for_empty_line(char *map, t_game *game);
 
 void	ft_check_command_line_arguments(int argc, char **argv, t_game *game)
 {

@@ -6,16 +6,11 @@
 /*   By: mkazuhik <mkazuhik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 06:50:26 by mkazuhik          #+#    #+#             */
-/*   Updated: 2025/09/23 06:50:27 by mkazuhik         ###   ########.fr       */
+/*   Updated: 2025/09/24 17:58:02 by mkazuhik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void	ft_init_vars(t_game *game);
-void	ft_init_mlx(t_game *game);
-void	ft_init_sprites(t_game *game);
-t_image	ft_new_sprite(void *mlx, char *path, t_game *game);
 
 void	ft_init_vars(t_game *game)
 {

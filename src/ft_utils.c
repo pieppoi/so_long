@@ -6,13 +6,11 @@
 /*   By: mkazuhik <mkazuhik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 06:50:58 by mkazuhik          #+#    #+#             */
-/*   Updated: 2025/09/23 06:50:59 by mkazuhik         ###   ########.fr       */
+/*   Updated: 2025/09/24 17:58:17 by mkazuhik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-char	*ft_strappend(char **s1, const char *s2);
 
 char	*ft_strappend(char **s1, const char *s2)
 {

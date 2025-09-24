@@ -6,7 +6,7 @@
 #    By: mkazuhik <mkazuhik@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/09 17:09:39 by mkazuhik          #+#    #+#              #
-#    Updated: 2025/09/23 06:29:38 by mkazuhik         ###   ########.fr        #
+#    Updated: 2025/09/23 19:27:27 by mkazuhik         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,8 @@ TEXTURE_DIR = textures/
 
 # Libraries
 LIBFT = libft/libft.a
+
+MLX = $(MLX_DIR)/libmlx.a
 
 # Include paths
 INCLUDE = -I$(INC_DIR) -I$(MLX_DIR) -Ilibft
@@ -66,10 +68,15 @@ NC = \033[0m
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(LIBFT)
+$(NAME): $(OBJS) $(LIBFT) $(MLX)
 	@echo "$(YELLOW)Compiling $(NAME)...$(NC)"
 	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(MLXFLAGS)
 	@echo "$(GREEN)✓ $(NAME) compiled successfully!$(NC)"
+
+$(MLX):
+	@echo "$(YELLOW)Compiling MiniLibX...$(NC)"
+	@make -C $(MLX_DIR)
+	@echo "$(GREEN)✓ MiniLibX compiled$(NC)"
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJ_DIR)
 	@echo "$(YELLOW)Compiling: $<$(NC)"

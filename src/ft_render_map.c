@@ -6,17 +6,11 @@
 /*   By: mkazuhik <mkazuhik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 06:50:44 by mkazuhik          #+#    #+#             */
-/*   Updated: 2025/09/23 06:50:45 by mkazuhik         ###   ########.fr       */
+/*   Updated: 2025/09/24 17:58:13 by mkazuhik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-int		ft_render_map(t_game *game);
-void	ft_identify_sprite(t_game *game, int x, int y);
-void	ft_render_player(t_game *game, int x, int y);
-void	ft_render_sprite(t_game *game, t_image sprite, int column, int line);
-void	ft_print_movements(t_game *game);
 
 int	ft_render_map(t_game *game)
 {

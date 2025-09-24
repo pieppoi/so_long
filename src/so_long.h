@@ -6,7 +6,7 @@
 /*   By: mkazuhik <mkazuhik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 06:51:21 by mkazuhik          #+#    #+#             */
-/*   Updated: 2025/09/23 06:55:59 by mkazuhik         ###   ########.fr       */
+/*   Updated: 2025/09/24 18:12:07 by mkazuhik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@
 # define KEY_RIGHT 			65363
 # define KEY_DOWN  			65364
 
-# define KEY_Q				113
 # define KEY_ESC  			65307
 
 # define FRONT				1
@@ -114,35 +113,49 @@ typedef struct s_game
 	t_image		player_back;
 }	t_game;
 
-void	ft_check_command_line_arguments(int argc, char **argv, t_game *game);
-void	ft_init_map(t_game *game, char *argv);
-void	ft_read_map(t_game *game, char *argv);
-char	*ft_read_file_content(t_game *game, char *argv);
-char	*ft_strappend(char **s1, const char *s2);
-void	ft_check_for_empty_line(char *map, t_game *game);
-void	ft_init_vars(t_game *game);
+// ft_check_map.c
 void	ft_check_map(t_game *game);
 void	ft_check_rows(t_game *game);
 void	ft_check_columns(t_game *game);
 void	ft_count_map_parameters(t_game *game);
 void	ft_verify_map_parameters(t_game *game);
-void	ft_init_mlx(t_game *game);
-void	ft_init_sprites(t_game *game);
-t_image	ft_new_sprite(void *mlx, char *path, t_game *game);
-int		ft_render_map(t_game *game);
-void	ft_identify_sprite(t_game *game, int x, int y);
-void	ft_render_player(t_game *game, int x, int y);
-void	ft_render_sprite(t_game *game, t_image sprite, int column, int line);
-int		ft_handle_input(int keysym, t_game *game);
-void	ft_player_move(t_game *game, int x, int y, int player_sprite);
+
+//ft_close_game.c
 int		ft_victory(t_game *game);
-int		ft_error_msg(char *message, t_game *game);
 int		ft_close_game(t_game *game);
+int		ft_error_msg(char *message, t_game *game);
+
+//ft_free_memory.c
 void	ft_free_all_allocated_memory(t_game *game);
 void	ft_destroy_images(t_game *game);
 void	ft_free_map(t_game *game);
 
-// Get next line functions
+//ft_handle_input.c
+int		ft_handle_input(int keysym, t_game *game);
+void	ft_player_move(t_game *game, int x, int y, int player_sprite);
+
+//ft_init_game.c
+void	ft_init_vars(t_game *game);
+void	ft_init_mlx(t_game *game);
+void	ft_init_sprites(t_game *game);
+t_image	ft_new_sprite(void *mlx, char *path, t_game *game);
+
+//ft_init_map.c
+void	ft_check_command_line_arguments(int argc, char **argv, t_game *game);
+char	*ft_read_file_content(t_game *game, char *argv);
+void	ft_init_map(t_game *game, char *argv);
+void	ft_check_for_empty_line(char *map, t_game *game);
+
+//ft_render_map.c
+int		ft_render_map(t_game *game);
+void	ft_identify_sprite(t_game *game, int x, int y);
+void	ft_render_player(t_game *game, int x, int y);
+void	ft_render_sprite(t_game *game, t_image sprite, int column, int line);
+
+//ft_utils.c
+char	*ft_strappend(char **s1, const char *s2);
+
+//get_next_line.c
 char	*get_next_line(int fd);
 char	*ft_read_and_stash(int fd, char *stash);
 char	*ft_extract_line(char *stash);

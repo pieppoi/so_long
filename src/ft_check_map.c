@@ -6,17 +6,11 @@
 /*   By: mkazuhik <mkazuhik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 06:49:41 by mkazuhik          #+#    #+#             */
-/*   Updated: 2025/09/23 06:49:49 by mkazuhik         ###   ########.fr       */
+/*   Updated: 2025/09/24 18:04:47 by mkazuhik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void	ft_check_map(t_game *game);
-void	ft_check_rows(t_game *game);
-void	ft_check_columns(t_game *game);
-void	ft_count_map_parameters(t_game *game);
-void	ft_verify_map_parameters(t_game *game);
 
 void	ft_check_map(t_game *game)
 {

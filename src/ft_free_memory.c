@@ -6,15 +6,11 @@
 /*   By: mkazuhik <mkazuhik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 06:50:06 by mkazuhik          #+#    #+#             */
-/*   Updated: 2025/09/23 06:50:07 by mkazuhik         ###   ########.fr       */
+/*   Updated: 2025/09/24 18:06:56 by mkazuhik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void	ft_free_all_allocated_memory(t_game *game);
-void	ft_destroy_images(t_game *game);
-void	ft_free_map(t_game *game);
 
 void	ft_free_all_allocated_memory(t_game *game)
 {

@@ -6,15 +6,11 @@
 /*   By: mkazuhik <mkazuhik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 06:49:56 by mkazuhik          #+#    #+#             */
-/*   Updated: 2025/09/23 06:49:57 by mkazuhik         ###   ########.fr       */
+/*   Updated: 2025/09/24 18:05:19 by mkazuhik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-int	ft_victory(t_game *game);
-int	ft_close_game(t_game *game);
-int	ft_error_msg(char *message, t_game *game);
 
 int	ft_victory(t_game *game)
 {

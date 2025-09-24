@@ -6,14 +6,11 @@
 /*   By: mkazuhik <mkazuhik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 06:50:18 by mkazuhik          #+#    #+#             */
-/*   Updated: 2025/09/23 06:50:19 by mkazuhik         ###   ########.fr       */
+/*   Updated: 2025/09/24 17:57:56 by mkazuhik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-int		ft_handle_input(int keysym, t_game *game);
-void	ft_player_move(t_game *game, int x, int y, int player_sprite);
 
 int	ft_handle_input(int keysym, t_game *game)
 {
@@ -25,7 +22,7 @@ int	ft_handle_input(int keysym, t_game *game)
 		ft_player_move(game, game->map.player.y, game->map.player.x + 1, RIGHT);
 	if (keysym == KEY_DOWN || keysym == KEY_S)
 		ft_player_move(game, game->map.player.y + 1, game->map.player.x, FRONT);
-	if (keysym == KEY_Q || keysym == KEY_ESC)
+	if (keysym == KEY_ESC)
 		ft_close_game(game);
 	return (0);
 }
