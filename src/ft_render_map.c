@@ -23,6 +23,8 @@ int	ft_render_map(t_game *game)
 		x = 0;
 		while (x < game->map.columns)
 		{
+            // Always draw floor first so transparent sprites overlay correctly
+            ft_render_sprite(game, game->floor, y, x);
 			ft_identify_sprite(game, y, x);
 			x++;
 		}
@@ -36,10 +38,8 @@ void	ft_identify_sprite(t_game *game, int y, int x)
 	char	parameter;
 
 	parameter = game->map.full[y][x];
-	if (parameter == WALL)
+    if (parameter == WALL)
 		ft_render_sprite (game, game->wall, y, x);
-	else if (parameter == FLOOR)
-		ft_render_sprite (game, game->floor, y, x);
 	else if (parameter == COINS)
 		ft_render_sprite (game, game->coins, y, x);
 	else if (parameter == MAP_EXIT)
