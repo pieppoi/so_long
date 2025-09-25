@@ -19,6 +19,7 @@ void	ft_check_map(t_game *game)
 	ft_check_columns(game);
 	ft_count_map_parameters(game);
 	ft_verify_map_parameters(game);
+    ft_check_reachability(game);
 }
 
 static int	ft_line_length(const char *line)
