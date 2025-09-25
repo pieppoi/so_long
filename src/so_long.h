@@ -113,7 +113,7 @@ typedef struct s_game
 	t_image		player_back;
 }	t_game;
 
-// ft_check_map.c
+/* ft_check_map.c */
 void	ft_check_map(t_game *game);
 void	ft_check_rows(t_game *game);
 void	ft_check_columns(t_game *game);
@@ -121,45 +121,45 @@ void	ft_count_map_parameters(t_game *game);
 void	ft_verify_map_parameters(t_game *game);
 void	ft_check_rectangle(t_game *game);
 
-// ft_path_check.c
+/* ft_path_check.c */
 void	ft_check_reachability(t_game *game);
 
-//ft_close_game.c
+/* ft_close_game.c */
 int		ft_victory(t_game *game);
 int		ft_close_game(t_game *game);
 int		ft_error_msg(char *message, t_game *game);
 
-//ft_free_memory.c
+/* ft_free_memory.c */
 void	ft_free_all_allocated_memory(t_game *game);
 void	ft_destroy_images(t_game *game);
 void	ft_free_map(t_game *game);
 
-//ft_handle_input.c
+/* ft_handle_input.c */
 int		ft_handle_input(int keysym, t_game *game);
 void	ft_player_move(t_game *game, int new_y, int new_x, int player_sprite);
 
-//ft_init_game.c
+/* ft_init_game.c */
 void	ft_init_vars(t_game *game);
 void	ft_init_mlx(t_game *game);
 void	ft_init_sprites(t_game *game);
 t_image	ft_new_sprite(void *mlx, char *path, t_game *game);
 
-//ft_init_map.c
+/* ft_init_map.c */
 void	ft_check_command_line_arguments(int argc, char **argv, t_game *game);
 char	*ft_read_file_content(t_game *game, char *argv);
 void	ft_init_map(t_game *game, char *argv);
 void	ft_check_for_empty_line(char *map, t_game *game);
 
-//ft_render_map.c
+/* ft_render_map.c */
 int		ft_render_map(t_game *game);
 void	ft_identify_sprite(t_game *game, int y, int x);
 void	ft_render_player(t_game *game, int y, int x);
 void	ft_render_sprite(t_game *game, t_image sprite, int line, int column);
 
-//ft_utils.c
+/* ft_utils.c */
 char	*ft_strappend(char **s1, const char *s2);
 
-//get_next_line.c
+/* get_next_line.c */
 char	*get_next_line(int fd);
 char	*ft_read_and_stash(int fd, char *stash);
 char	*ft_extract_line(char *stash);

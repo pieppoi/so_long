@@ -57,32 +57,44 @@ static int	ft_is_walkable(char c)
 	return (c == FLOOR || c == COINS || c == PLAYER);
 }
 
-static void	ft_flood_fill(char **grid, int rows, int cols, int y, int x, int *coins)
+typedef struct s_ff
 {
-	if (y < 0 || y >= rows || x < 0 || x >= cols)
+    char    **grid;
+    int     rows;
+    int     cols;
+    int     *coins;
+}   t_ff;
+
+static void	ft_flood_fill(t_ff ctx, int y, int x)
+{
+	if (y < 0 || y >= ctx.rows || x < 0 || x >= ctx.cols)
 		return ;
-	if (!ft_is_walkable(grid[y][x]))
+	if (!ft_is_walkable(ctx.grid[y][x]))
 		return ;
-	if (grid[y][x] == COINS)
-		(*coins)++;
-	grid[y][x] = 'V';
-	ft_flood_fill(grid, rows, cols, y - 1, x, coins);
-	ft_flood_fill(grid, rows, cols, y + 1, x, coins);
-	ft_flood_fill(grid, rows, cols, y, x - 1, coins);
-	ft_flood_fill(grid, rows, cols, y, x + 1, coins);
+	if (ctx.grid[y][x] == COINS)
+		(*ctx.coins)++;
+	ctx.grid[y][x] = 'V';
+	ft_flood_fill(ctx, y - 1, x);
+	ft_flood_fill(ctx, y + 1, x);
+	ft_flood_fill(ctx, y, x - 1);
+	ft_flood_fill(ctx, y, x + 1);
 }
 
 void	ft_check_reachability(t_game *game)
 {
 	char	**dup;
 	int		reachable_coins;
+    t_ff	ctx;
 
 	dup = ft_dup_map(game->map.full, game->map.rows);
 	if (!dup)
 		ft_error_msg("Memory allocation failed during path check.", game);
 	reachable_coins = 0;
-	ft_flood_fill(dup, game->map.rows, game->map.columns,
-		game->map.player.y, game->map.player.x, &reachable_coins);
+	ctx.grid = dup;
+	ctx.rows = game->map.rows;
+	ctx.cols = game->map.columns;
+	ctx.coins = &reachable_coins;
+	ft_flood_fill(ctx, game->map.player.y, game->map.player.x);
 	ft_free_dup_map(dup, game->map.rows);
 	if (reachable_coins < game->map.coins)
 		ft_error_msg("Invalid Map. There are unreachable Coins!", game);
