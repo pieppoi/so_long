@@ -51,6 +51,7 @@ SRCS = main.c \
 	   ft_render_map.c \
        ft_utils.c \
        ft_path_check.c \
+       ft_map_rules.c \
 	   get_next_line.c
 
 # Object files
