@@ -49,7 +49,8 @@ SRCS = main.c \
 	   ft_init_game.c \
 	   ft_init_map.c \
 	   ft_render_map.c \
-	   ft_utils.c \
+       ft_utils.c \
+       ft_path_check.c \
 	   get_next_line.c
 
 # Object files

@@ -121,6 +121,9 @@ void	ft_count_map_parameters(t_game *game);
 void	ft_verify_map_parameters(t_game *game);
 void	ft_check_rectangle(t_game *game);
 
+// ft_path_check.c
+void	ft_check_reachability(t_game *game);
+
 //ft_close_game.c
 int		ft_victory(t_game *game);
 int		ft_close_game(t_game *game);
