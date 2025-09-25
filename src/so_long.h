@@ -6,7 +6,7 @@
 /*   By: mkazuhik <mkazuhik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 06:51:21 by mkazuhik          #+#    #+#             */
-/*   Updated: 2025/09/24 18:12:07 by mkazuhik         ###   ########.fr       */
+/*   Updated: 2025/09/25 16:08:52 by mkazuhik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,7 +132,7 @@ void	ft_free_map(t_game *game);
 
 //ft_handle_input.c
 int		ft_handle_input(int keysym, t_game *game);
-void	ft_player_move(t_game *game, int x, int y, int player_sprite);
+void	ft_player_move(t_game *game, int new_y, int new_x, int player_sprite);
 
 //ft_init_game.c
 void	ft_init_vars(t_game *game);
