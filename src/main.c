@@ -6,7 +6,7 @@
 /*   By: mkazuhik <mkazuhik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 06:51:16 by mkazuhik          #+#    #+#             */
-/*   Updated: 2025/09/23 06:51:17 by mkazuhik         ###   ########.fr       */
+/*   Updated: 2025/09/25 17:06:54 by mkazuhik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ int	main(int argc, char	**argv)
 	ft_init_sprites(game);
 	ft_render_map(game);
 	mlx_hook(game->win_ptr, KeyPress, KeyPressMask, ft_handle_input, game);
-    mlx_hook(game->win_ptr, DestroyNotify, \
-    0, ft_close_game, game);
+	mlx_hook(game->win_ptr, DestroyNotify, 0, ft_close_game, game);
 	mlx_hook(game->win_ptr, Expose, ExposureMask, ft_render_map, game);
 	mlx_loop(game->mlx_ptr);
 }

@@ -6,7 +6,7 @@
 /*   By: mkazuhik <mkazuhik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 06:50:26 by mkazuhik          #+#    #+#             */
-/*   Updated: 2025/09/24 17:58:02 by mkazuhik         ###   ########.fr       */
+/*   Updated: 2025/09/25 17:07:42 by mkazuhik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void	ft_init_mlx(t_game *game)
 	game->map.columns * IMG_WIDTH, game->map.rows * IMG_HEIGHT, "so_long");
 	if (game->win_ptr == NULL)
 	{
-        mlx_destroy_display(game->mlx_ptr);
-        free(game->mlx_ptr);
+		mlx_destroy_display(game->mlx_ptr);
+		free(game->mlx_ptr);
 		ft_error_msg("Couldn't create the Window.", game);
 	}
 }

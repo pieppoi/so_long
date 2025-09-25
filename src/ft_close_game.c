@@ -6,7 +6,7 @@
 /*   By: mkazuhik <mkazuhik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 06:49:56 by mkazuhik          #+#    #+#             */
-/*   Updated: 2025/09/24 18:05:19 by mkazuhik         ###   ########.fr       */
+/*   Updated: 2025/09/25 17:06:33 by mkazuhik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_victory(t_game *game)
 	printf(GREEN"congratulations!\n"RESET);
 	printf(CYAN"Movements: %d\n"RESET, ++game->movements);
 	ft_free_all_allocated_memory(game);
-    exit (EXIT_SUCCESS);
+	exit (EXIT_SUCCESS);
 }
 
 int	ft_close_game(t_game *game)
@@ -25,7 +25,7 @@ int	ft_close_game(t_game *game)
 	printf(CYAN"Movements: %d\n"RESET, game->movements);
 	ft_free_all_allocated_memory(game);
 	printf(GREY"CLOSED\n"RESET);
-    exit (EXIT_SUCCESS);
+	exit (EXIT_SUCCESS);
 }
 
 int	ft_error_msg(char *message, t_game *game)
