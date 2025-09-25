@@ -119,6 +119,7 @@ void	ft_check_rows(t_game *game);
 void	ft_check_columns(t_game *game);
 void	ft_count_map_parameters(t_game *game);
 void	ft_verify_map_parameters(t_game *game);
+void	ft_check_rectangle(t_game *game);
 
 //ft_close_game.c
 int		ft_victory(t_game *game);
@@ -148,9 +149,9 @@ void	ft_check_for_empty_line(char *map, t_game *game);
 
 //ft_render_map.c
 int		ft_render_map(t_game *game);
-void	ft_identify_sprite(t_game *game, int x, int y);
-void	ft_render_player(t_game *game, int x, int y);
-void	ft_render_sprite(t_game *game, t_image sprite, int column, int line);
+void	ft_identify_sprite(t_game *game, int y, int x);
+void	ft_render_player(t_game *game, int y, int x);
+void	ft_render_sprite(t_game *game, t_image sprite, int line, int column);
 
 //ft_utils.c
 char	*ft_strappend(char **s1, const char *s2);

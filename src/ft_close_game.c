@@ -17,7 +17,7 @@ int	ft_victory(t_game *game)
 	printf(GREEN"congratulations!\n"RESET);
 	printf(CYAN"Movements: %d\n"RESET, ++game->movements);
 	ft_free_all_allocated_memory(game);
-	exit (EXIT_FAILURE);
+    exit (EXIT_SUCCESS);
 }
 
 int	ft_close_game(t_game *game)
@@ -25,7 +25,7 @@ int	ft_close_game(t_game *game)
 	printf(CYAN"Movements: %d\n"RESET, game->movements);
 	ft_free_all_allocated_memory(game);
 	printf(GREY"CLOSED\n"RESET);
-	exit (EXIT_FAILURE);
+    exit (EXIT_SUCCESS);
 }
 
 int	ft_error_msg(char *message, t_game *game)

@@ -48,7 +48,7 @@ char	*ft_read_and_stash(int fd, char *stash)
 			break ;
 		buffer[bytes_read] = '\0';
 		if (stash)
-			stash = ft_strjoin(stash, buffer);
+			stash = ft_strappend(&stash, buffer);
 		else
 			stash = ft_strdup(buffer);
 	}
