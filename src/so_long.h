@@ -6,7 +6,7 @@
 /*   By: mkazuhik <mkazuhik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 06:51:21 by mkazuhik          #+#    #+#             */
-/*   Updated: 2025/09/25 17:28:03 by mkazuhik         ###   ########.fr       */
+/*   Updated: 2025/09/25 20:14:47 by mkazuhik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,15 +48,15 @@
 # define RIGHT				3
 # define BACK				4
 
-# define WALL_XPM			"Resources/wall.xpm"
-# define FLOOR_XPM			"Resources/empty.xpm"
-# define COINS_XPM			"Resources/coin.xpm"
-# define PLAYER_FRONT_XPM	"Resources/player.xpm"
-# define PLAYER_LEFT_XPM	"Resources/player.xpm"
-# define PLAYER_RIGHT_XPM	"Resources/player.xpm"
-# define PLAYER_BACK_XPM	"Resources/player.xpm"
-# define OPEN_EXIT_XPM		"Resources/door.xpm"
-# define EXIT_CLOSED_XPM	"Resources/door.xpm"
+# define WALL_XPM			"textures/wall.xpm"
+# define FLOOR_XPM			"textures/empty.xpm"
+# define COINS_XPM			"textures/coin.xpm"
+# define PLAYER_FRONT_XPM	"textures/player.xpm"
+# define PLAYER_LEFT_XPM	"textures/player.xpm"
+# define PLAYER_RIGHT_XPM	"textures/player.xpm"
+# define PLAYER_BACK_XPM	"textures/player.xpm"
+# define OPEN_EXIT_XPM		"textures/door.xpm"
+# define EXIT_CLOSED_XPM	"textures/door.xpm"
 
 # define GREEN				"\033[0;32m"
 # define RED 				"\033[1;31m"
