@@ -6,7 +6,7 @@
 /*   By: mkazuhik <mkazuhik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/25 17:22:41 by mkazuhik          #+#    #+#             */
-/*   Updated: 2025/09/25 17:08:24 by mkazuhik         ###   ########.fr       */
+/*   Updated: 2025/09/25 17:27:51 by mkazuhik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,14 +57,6 @@ static int	ft_is_walkable(char c)
 	return (c == FLOOR || c == COINS || c == PLAYER);
 }
 
-typedef struct s_ff
-{
-    char    **grid;
-    int     rows;
-    int     cols;
-    int     *coins;
-}   t_ff;
-
 static void	ft_flood_fill(t_ff ctx, int y, int x)
 {
 	if (y < 0 || y >= ctx.rows || x < 0 || x >= ctx.cols)
@@ -84,7 +76,7 @@ void	ft_check_reachability(t_game *game)
 {
 	char	**dup;
 	int		reachable_coins;
-    t_ff	ctx;
+	t_ff	ctx;
 
 	dup = ft_dup_map(game->map.full, game->map.rows);
 	if (!dup)

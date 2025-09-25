@@ -6,7 +6,7 @@
 /*   By: mkazuhik <mkazuhik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/25 18:00:00 by mkazuhik          #+#    #+#             */
-/*   Updated: 2025/09/25 18:00:00 by mkazuhik         ###   ########.fr       */
+/*   Updated: 2025/09/25 17:28:17 by mkazuhik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,4 +91,3 @@ void	ft_verify_map_parameters(t_game *game)
 			" It's a single player game.",
 			game);
 }
-

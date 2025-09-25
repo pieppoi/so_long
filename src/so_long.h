@@ -6,7 +6,7 @@
 /*   By: mkazuhik <mkazuhik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 06:51:21 by mkazuhik          #+#    #+#             */
-/*   Updated: 2025/09/25 16:08:52 by mkazuhik         ###   ########.fr       */
+/*   Updated: 2025/09/25 17:28:03 by mkazuhik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,14 @@ typedef struct s_game
 	t_image		player_right;
 	t_image		player_back;
 }	t_game;
+
+typedef struct s_ff
+{
+	char	**grid;
+	int		rows;
+	int		cols;
+	int		*coins;
+}	t_ff;
 
 /* ft_check_map.c */
 void	ft_check_map(t_game *game);
