@@ -6,7 +6,7 @@
 /*   By: mkazuhik <mkazuhik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 06:51:21 by mkazuhik          #+#    #+#             */
-/*   Updated: 2025/09/26 13:20:17 by mkazuhik         ###   ########.fr       */
+/*   Updated: 2025/09/27 03:21:09 by mkazuhik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <mlx.h>
 # include <X11/X.h>
 # include <X11/keysym.h>
-# include "../ft_printf/ft_printf.h"
+# include "ft_printf.h"
 
 # define IMG_HEIGHT			64
 # define IMG_WIDTH			64

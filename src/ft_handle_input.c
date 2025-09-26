@@ -6,7 +6,7 @@
 /*   By: mkazuhik <mkazuhik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 06:50:18 by mkazuhik          #+#    #+#             */
-/*   Updated: 2025/09/24 17:57:56 by mkazuhik         ###   ########.fr       */
+/*   Updated: 2025/09/27 03:21:02 by mkazuhik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	ft_player_move(t_game *game, int new_y, int new_x, int player_sprite)
 		game->map.player.y = new_y;
 		game->map.full[new_y][new_x] = PLAYER;
 		game->movements++;
-		printf("Movements: %d\n", game->movements);
+		ft_printf("Movements: %d\n", game->movements);
 		ft_render_map(game);
 	}
 }

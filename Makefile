@@ -6,7 +6,7 @@
 #    By: mkazuhik <mkazuhik@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/09 17:09:39 by mkazuhik          #+#    #+#              #
-#    Updated: 2025/09/26 13:23:01 by mkazuhik         ###   ########.fr        #
+#    Updated: 2025/09/27 03:19:27 by mkazuhik         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CFLAGS = -Wall -Wextra -Werror -g
 # System Detection
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S), Linux)
-	MLXFLAGS = -Lminilibx-linux -lmlx -L./FT_PRINTF -lft -lXext -lX11 -lm -lz
+	MLXFLAGS = -Lminilibx-linux -lmlx -L./ft_printf -lftprintf -lXext -lX11 -lm -lz
 	MLX_DIR = minilibx-linux
 endif
 ifeq ($(UNAME_S), Darwin)
@@ -27,18 +27,17 @@ endif
 
 # Directories
 SRC_DIR = src/
-INC_DIR = inc/
 OBJ_DIR = obj/
 MAP_DIR = maps/
 TEXTURE_DIR = textures/
 
 # Libraries
-FT_PRINTF = FT_printf/FT_PRINTFFT_printf.a
+FT_PRINTF = ft_printf/libftprintf.a
 
 MLX = $(MLX_DIR)/libmlx.a
 
 # Include paths
-INCLUDE = -I$(INC_DIR) -I$(MLX_DIR) -IFT_PRINTF
+INCLUDE = -I$(SRC_DIR) -I$(MLX_DIR) -Ift_printf
 
 # Source files
 SRCS = main.c \
@@ -72,7 +71,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS) $(FT_PRINTF) $(MLX)
 	@echo "$(YELLOW)Compiling $(NAME)...$(NC)"
-	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(MLXFLAGS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(MLXFLAGS)
 	@echo "$(GREEN)✓ $(NAME) compiled successfully!$(NC)"
 
 $(MLX):
@@ -82,26 +81,26 @@ $(MLX):
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJ_DIR)
 	@echo "$(YELLOW)Compiling: $<$(NC)"
-	@$(CC) $(CFLAGS) $(INCLUDE) -MMD -MP -c $< -o $@
+	$(CC) $(CFLAGS) $(INCLUDE) -MMD -MP -c $< -o $@
 
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
 
 $(FT_PRINTF):
-	@echo "$(YELLOW)Compiling FT_PRINTF...$(NC)"
-	@make -C FT_PRINTF
-	@echo "$(GREEN)✓ FT_PRINTF compiled$(NC)"
+	@echo "$(YELLOW)Compiling ft_printf...$(NC)"
+	@make -C ft_printf
+	@echo "$(GREEN)✓ ft_printf compiled$(NC)"
 
 clean:
 	@echo "$(RED)Cleaning object files...$(NC)"
 	@rm -rf $(OBJ_DIR)
-	@make clean -C FT_PRINTF
+	@make clean -C ft_printf
 	@echo "$(GREEN)✓ Clean completed$(NC)"
 
 fclean: clean
 	@echo "$(RED)Removing $(NAME)...$(NC)"
 	@rm -f $(NAME)
-	@make fclean -C FT_PRINTF
+	@make fclean -C ft_printf
 	@echo "$(GREEN)✓ Full clean completed$(NC)"
 
 re: fclean all
