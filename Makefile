@@ -17,7 +17,7 @@ CFLAGS = -Wall -Wextra -Werror -g
 # System Detection
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S), Linux)
-	MLXFLAGS = -Lminilibx-linux -lmlx -L./FT_PRINTF -lft -lXext -lX11 -lm -lz
+	MLXFLAGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm -lz -lbsd
 	MLX_DIR = minilibx-linux
 endif
 ifeq ($(UNAME_S), Darwin)
@@ -27,18 +27,14 @@ endif
 
 # Directories
 SRC_DIR = src/
-INC_DIR = inc/
 OBJ_DIR = obj/
 MAP_DIR = maps/
 TEXTURE_DIR = textures/
 
-# Libraries
-FT_PRINTF = FT_printf/FT_PRINTFFT_printf.a
-
 MLX = $(MLX_DIR)/libmlx.a
 
 # Include paths
-INCLUDE = -I$(INC_DIR) -I$(MLX_DIR) -IFT_PRINTF
+INCLUDE = -I$(SRC_DIR) -I$(MLX_DIR)
 
 # Source files
 SRCS = main.c \
@@ -52,7 +48,8 @@ SRCS = main.c \
        ft_utils.c \
        ft_path_check.c \
        ft_map_rules.c \
-	   get_next_line.c
+	   get_next_line.c \
+	   libft.c
 
 # Object files
 OBJS = $(addprefix $(OBJ_DIR), $(SRCS:.c=.o))
@@ -70,7 +67,7 @@ NC = \033[0m
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(FT_PRINTF) $(MLX)
+$(NAME): $(OBJS) $(MLX)
 	@echo "$(YELLOW)Compiling $(NAME)...$(NC)"
 	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(MLXFLAGS)
 	@echo "$(GREEN)✓ $(NAME) compiled successfully!$(NC)"
@@ -87,21 +84,14 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJ_DIR)
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
 
-$(FT_PRINTF):
-	@echo "$(YELLOW)Compiling FT_PRINTF...$(NC)"
-	@make -C FT_PRINTF
-	@echo "$(GREEN)✓ FT_PRINTF compiled$(NC)"
-
 clean:
 	@echo "$(RED)Cleaning object files...$(NC)"
 	@rm -rf $(OBJ_DIR)
-	@make clean -C FT_PRINTF
 	@echo "$(GREEN)✓ Clean completed$(NC)"
 
 fclean: clean
 	@echo "$(RED)Removing $(NAME)...$(NC)"
 	@rm -f $(NAME)
-	@make fclean -C FT_PRINTF
 	@echo "$(GREEN)✓ Full clean completed$(NC)"
 
 re: fclean all
