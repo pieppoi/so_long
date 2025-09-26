@@ -6,7 +6,7 @@
 #    By: mkazuhik <mkazuhik@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/09 17:09:39 by mkazuhik          #+#    #+#              #
-#    Updated: 2025/09/25 19:22:45 by mkazuhik         ###   ########.fr        #
+#    Updated: 2025/09/26 13:23:01 by mkazuhik         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CFLAGS = -Wall -Wextra -Werror -g
 # System Detection
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S), Linux)
-	MLXFLAGS = -Lminilibx-linux -lmlx -L./libft -lft -lXext -lX11 -lm -lz
+	MLXFLAGS = -Lminilibx-linux -lmlx -L./FT_PRINTF -lft -lXext -lX11 -lm -lz
 	MLX_DIR = minilibx-linux
 endif
 ifeq ($(UNAME_S), Darwin)
@@ -33,12 +33,12 @@ MAP_DIR = maps/
 TEXTURE_DIR = textures/
 
 # Libraries
-LIBFT = libft/libft.a
+FT_PRINTF = FT_printf/FT_PRINTFFT_printf.a
 
 MLX = $(MLX_DIR)/libmlx.a
 
 # Include paths
-INCLUDE = -I$(INC_DIR) -I$(MLX_DIR) -Ilibft
+INCLUDE = -I$(INC_DIR) -I$(MLX_DIR) -IFT_PRINTF
 
 # Source files
 SRCS = main.c \
@@ -70,7 +70,7 @@ NC = \033[0m
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(LIBFT) $(MLX)
+$(NAME): $(OBJS) $(FT_PRINTF) $(MLX)
 	@echo "$(YELLOW)Compiling $(NAME)...$(NC)"
 	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(MLXFLAGS)
 	@echo "$(GREEN)✓ $(NAME) compiled successfully!$(NC)"
@@ -87,21 +87,21 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJ_DIR)
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
 
-$(LIBFT):
-	@echo "$(YELLOW)Compiling libft...$(NC)"
-	@make -C libft
-	@echo "$(GREEN)✓ libft compiled$(NC)"
+$(FT_PRINTF):
+	@echo "$(YELLOW)Compiling FT_PRINTF...$(NC)"
+	@make -C FT_PRINTF
+	@echo "$(GREEN)✓ FT_PRINTF compiled$(NC)"
 
 clean:
 	@echo "$(RED)Cleaning object files...$(NC)"
 	@rm -rf $(OBJ_DIR)
-	@make clean -C libft
+	@make clean -C FT_PRINTF
 	@echo "$(GREEN)✓ Clean completed$(NC)"
 
 fclean: clean
 	@echo "$(RED)Removing $(NAME)...$(NC)"
 	@rm -f $(NAME)
-	@make fclean -C libft
+	@make fclean -C FT_PRINTF
 	@echo "$(GREEN)✓ Full clean completed$(NC)"
 
 re: fclean all
