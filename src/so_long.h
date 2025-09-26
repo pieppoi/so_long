@@ -16,10 +16,10 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdio.h>
+# include <stdlib.h>
 # include <mlx.h>
 # include <X11/X.h>
 # include <X11/keysym.h>
-# include "../ft_printf/ft_printf.h"
 
 # define IMG_HEIGHT			64
 # define IMG_WIDTH			64
@@ -166,6 +166,16 @@ void	ft_render_sprite(t_game *game, t_image sprite, int line, int column);
 
 /* ft_utils.c */
 char	*ft_strappend(char **s1, const char *s2);
+
+/* libft.c */
+size_t	ft_strlen(const char *s);
+char	*ft_strdup(const char *s);
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
+char	*ft_strchr(const char *s, int c);
+void	*ft_calloc(size_t count, size_t size);
+char	**ft_split(char const *s, char c);
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 
 /* get_next_line.c */
 char	*get_next_line(int fd);
